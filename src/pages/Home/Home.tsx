@@ -1,9 +1,11 @@
-/* eslint-disable react/react-in-jsx-scope */
+import RecordsList from '../../components/RecordsList';
+import recordsList from '../../mocks/recordsList';
 
 function Home(): JSX.Element {
     return (
         <>
             <p>Home</p>
+            <RecordsList recordsList={recordsList} />
         </>
     );
 }
