@@ -14,14 +14,14 @@ const TableData = styled.td`
 `;
 
 type RecordsListProps = {
-    recordsList: IRecordList[];
+    recordsArray: IRecordList[];
 };
 
-function RecordsListRow(props: RecordsListProps): JSX.Element {
-    const { recordsList } = props;
+function RecordsTableBody(props: RecordsListProps): JSX.Element {
+    const { recordsArray } = props;
     return (
-        <>
-            {recordsList.map(({ id, name, type, date, amount }) => (
+        <tbody>
+            {recordsArray.map(({ id, name, type, date, amount }) => (
                 <TableRowData key={id}>
                     <TableData>{name}</TableData>
                     <TableData>{type}</TableData>
@@ -29,7 +29,7 @@ function RecordsListRow(props: RecordsListProps): JSX.Element {
                     <TableData>{amount}</TableData>
                 </TableRowData>
             ))}
-        </>
+        </tbody>
     );
 }
-export default RecordsListRow;
+export default RecordsTableBody;
