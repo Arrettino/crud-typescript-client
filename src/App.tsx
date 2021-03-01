@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
 import Sidebar from './Layout/Sidebar';
+import Header from './Layout/Header';
 
 const desktopStartWidth = 1024;
 const mobile = `@media (max-width: ${desktopStartWidth}px)`;
@@ -19,6 +20,7 @@ function App(): JSX.Element {
         <BrowserRouter>
             <Sidebar />
             <MarginRigth>
+                <Header />
                 <Router />
             </MarginRigth>
         </BrowserRouter>
