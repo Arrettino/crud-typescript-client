@@ -7,14 +7,13 @@ interface ImenuButtons {
     icon: IconDefinition;
     name: string;
     path?: string;
-    lineHeight: number;
 }
 
 const menuButtons: ImenuButtons[] = [
-    { icon: faHome, name: 'Home', path: '/', lineHeight: 1.7 },
-    { icon: faList, name: 'Registros', path: '/registers', lineHeight: 1.6 },
-    { icon: faChartBar, name: 'Estadisticas', lineHeight: 1.7 },
-    { icon: faWallet, name: 'Billeteras', lineHeight: 1.7 },
+    { icon: faHome, name: 'Home', path: '/' },
+    { icon: faList, name: 'Registros', path: '/registers' },
+    { icon: faChartBar, name: 'Estadisticas' },
+    { icon: faWallet, name: 'Billeteras' },
 ];
 
 const MenuContainer = styled.div`
@@ -29,40 +28,39 @@ const MenuButton = styled.div`
     height: 1.438rem;
     padding: 0.688rem 0.938rem 0.688rem 1.563rem;
     display: flex;
+    align-items: center;
     color: rgb(108, 117, 125);
 `;
-const MenuButtonText = styled.span<{ lineHeight: number }>`
+const MenuButtonText = styled.span`
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 0.925rem;
     margin-left: 1.25rem;
-    line-height: ${({ lineHeight }) => lineHeight};
 `;
-const menuIconStyle = { height: '1.438rem' };
 
 function Menu(): JSX.Element {
     return (
         <MenuContainer>
-            {menuButtons.map(({ icon, name, path, lineHeight }) => (
+            {menuButtons.map(({ icon, name, path }) => (
                 <>
                     {path ? (
                         <Link to={path} style={{ textDecoration: 'none' }}>
                             <MenuButton>
-                                <FontAwesomeIcon icon={icon} style={menuIconStyle} />
-                                <MenuButtonText lineHeight={lineHeight}>{name}</MenuButtonText>
+                                <FontAwesomeIcon icon={icon} />
+                                <MenuButtonText>{name}</MenuButtonText>
                             </MenuButton>
                         </Link>
                     ) : (
                         <MenuButton>
-                            <FontAwesomeIcon icon={icon} style={menuIconStyle} />
-                            <MenuButtonText lineHeight={lineHeight}>{name}</MenuButtonText>
+                            <FontAwesomeIcon icon={icon} />
+                            <MenuButtonText>{name}</MenuButtonText>
                         </MenuButton>
                     )}
                 </>
             ))}
             <MenuButton>
-                <FontAwesomeIcon icon={faSignOutAlt} style={{ height: '23px' }} />
-                <MenuButtonText lineHeight={1.6}>Cerrar sesion</MenuButtonText>
+                <FontAwesomeIcon icon={faSignOutAlt} />
+                <MenuButtonText>Cerrar sesion</MenuButtonText>
             </MenuButton>
         </MenuContainer>
     );
