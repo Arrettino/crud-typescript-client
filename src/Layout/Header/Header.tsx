@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-
-const desktopStartWidth = 1024;
-const mobile = `@media (max-width: ${desktopStartWidth}px)`;
+import constants from '../../constants';
 
 const HeaderContainer = styled.div`
     height: 4.375rem;
@@ -23,7 +21,7 @@ const PageTitle = styled.h4`
 const MenuIconContainer = styled.div`
     padding: 0 0 0 1.25rem;
     display: none;
-    ${mobile} {
+    ${constants.style.mediaQuery} {
         display: flex;
     }
 `;

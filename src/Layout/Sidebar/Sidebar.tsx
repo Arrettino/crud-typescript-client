@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import User from './User';
 import Menu from './Menu';
+import constants from '../../constants';
 
-const desktopStartWidth = 1024;
-const mobile = `@media (max-width: ${desktopStartWidth}px)`;
 const SidebarContainer = styled.div`
     height: 100%;
     width: 15rem;
@@ -19,7 +18,7 @@ const SidebarContainer = styled.div`
     grid-template-rows: 4.375rem 9.375rem auto;
     justify-items: center;
     align-items: center;
-    ${mobile} {
+    ${constants.style.mediaQuery} {
         display: none;
     }
 `;

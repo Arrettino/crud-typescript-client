@@ -3,14 +3,13 @@ import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
 import Sidebar from './Layout/Sidebar';
 import Header from './Layout/Header';
+import constants from './constants';
 
-const desktopStartWidth = 1024;
-const mobile = `@media (max-width: ${desktopStartWidth}px)`;
 const MarginRigth = styled.div`
     margin-left: 240px;
     background-color: #ebeff2;
     height: 100%;
-    ${mobile} {
+    ${constants.style.mediaQuery} {
         margin-left: 0;
     }
 `;
