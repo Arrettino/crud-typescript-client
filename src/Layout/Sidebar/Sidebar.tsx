@@ -3,7 +3,8 @@ import Logo from './Logo';
 import User from './User';
 import Menu from './Menu';
 import constants from '../../constants';
-import { useSelector, RootStateOrAny } from 'react-redux';
+import { useSelector } from 'react-redux';
+import IRootState from '../../redux/IRootState';
 
 const SidebarContainer = styled.div<{ sidebarState: boolean }>`
     height: 100%;
@@ -25,7 +26,8 @@ const SidebarContainer = styled.div<{ sidebarState: boolean }>`
 `;
 
 function Siderbar(): JSX.Element {
-    const sidebarState = useSelector((state: RootStateOrAny) => state.layout.sidebar);
+    const sidebarState = useSelector((state: IRootState) => state.layout.sidebar);
+
     return (
         <SidebarContainer sidebarState={sidebarState}>
             <Logo />
