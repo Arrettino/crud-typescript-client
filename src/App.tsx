@@ -3,18 +3,21 @@ import Router from './Router';
 import Sidebar from './Layout/Sidebar';
 import Header from './Layout/Header';
 import Content from './Layout/Content';
+import AppContainer from './Layout/AppContainer';
 
 function App(): JSX.Element {
     return (
-        <BrowserRouter>
-            <Sidebar />
-            <Content>
-                <>
-                    <Header />
-                    <Router />
-                </>
-            </Content>
-        </BrowserRouter>
+        <AppContainer>
+            <BrowserRouter>
+                <Sidebar />
+                <Content>
+                    <>
+                        <Header />
+                        <Router />
+                    </>
+                </Content>
+            </BrowserRouter>
+        </AppContainer>
     );
 }
 
