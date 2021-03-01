@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { sidebarClose } from '../../redux/actions/layout';
 import { useSelector, RootStateOrAny } from 'react-redux';
 import constants from '../../constants';
+import { useEffect } from 'react';
 
 const ContentContainer = styled.div`
     margin-left: 240px;
@@ -19,13 +21,24 @@ type ContentProps = {
 
 function Content(props: ContentProps): JSX.Element {
     const { children } = props;
+    const params = useLocation();
     const dispatch = useDispatch();
 
     const sidebarState: boolean = useSelector((state: RootStateOrAny) => state.layout.sidebar);
 
+    const closeSidebar = () => {
+        dispatch(sidebarClose());
+    };
+
+    useEffect(() => {
+        if (sidebarState) {
+            closeSidebar();
+        }
+    }, [params.pathname]);
+
     const handleOnClickSideBar = () => {
         if (sidebarState) {
-            dispatch(sidebarClose());
+            closeSidebar();
         }
     };
 
