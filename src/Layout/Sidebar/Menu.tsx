@@ -11,7 +11,7 @@ interface ImenuButtons {
 
 const menuButtons: ImenuButtons[] = [
     { icon: faHome, name: 'Home', path: '/' },
-    { icon: faList, name: 'Registros', path: '/registers' },
+    { icon: faList, name: 'Registros', path: '/records' },
     { icon: faChartBar, name: 'Estadisticas' },
     { icon: faWallet, name: 'Billeteras' },
 ];
