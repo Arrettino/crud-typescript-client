@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faList, IconDefinition, faWallet, faChartBar, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faList, IconDefinition, faChartBar, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 interface ImenuButtons {
@@ -13,7 +13,6 @@ const menuButtons: ImenuButtons[] = [
     { icon: faHome, name: 'Home', path: '/' },
     { icon: faList, name: 'Registros', path: '/records' },
     { icon: faChartBar, name: 'Estadisticas' },
-    { icon: faWallet, name: 'Billeteras' },
 ];
 
 const MenuContainer = styled.div`
