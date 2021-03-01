@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import constants from '../../constants';
+import { useDispatch } from 'react-redux';
+import { sidebarOpen } from '../../redux/actions/layout';
 
 const HeaderContainer = styled.div`
     height: 4.375rem;
@@ -26,9 +28,13 @@ const MenuIconContainer = styled.div`
     }
 `;
 function Header(): JSX.Element {
+    const dispatch = useDispatch();
+    const handleOnClickBars = () => {
+        dispatch(sidebarOpen());
+    };
     return (
         <HeaderContainer>
-            <MenuIconContainer>
+            <MenuIconContainer onClick={handleOnClickBars}>
                 <FontAwesomeIcon icon={faBars} style={{ fontSize: '1.33em' }} />
             </MenuIconContainer>
             <PageTitle>Home</PageTitle>

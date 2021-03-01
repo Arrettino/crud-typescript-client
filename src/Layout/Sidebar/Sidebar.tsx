@@ -3,8 +3,9 @@ import Logo from './Logo';
 import User from './User';
 import Menu from './Menu';
 import constants from '../../constants';
+import { useSelector, RootStateOrAny } from 'react-redux';
 
-const SidebarContainer = styled.div`
+const SidebarContainer = styled.div<{ sidebarState: boolean }>`
     height: 100%;
     width: 15rem;
     position: fixed;
@@ -19,13 +20,14 @@ const SidebarContainer = styled.div`
     justify-items: center;
     align-items: center;
     ${constants.style.mediaQuery} {
-        display: none;
+        display: ${({ sidebarState }) => (sidebarState ? 'grid' : 'none')};
     }
 `;
 
 function Siderbar(): JSX.Element {
+    const sidebarState = useSelector((state: RootStateOrAny) => state.layout.sidebar);
     return (
-        <SidebarContainer>
+        <SidebarContainer sidebarState={sidebarState}>
             <Logo />
             <User />
             <Menu />

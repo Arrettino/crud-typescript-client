@@ -4,6 +4,9 @@ import Router from './Router';
 import Sidebar from './Layout/Sidebar';
 import Header from './Layout/Header';
 import constants from './constants';
+import { useDispatch } from 'react-redux';
+import { sidebarClose } from './redux/actions/layout';
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 const MarginRigth = styled.div`
     margin-left: 240px;
@@ -15,10 +18,17 @@ const MarginRigth = styled.div`
 `;
 
 function App(): JSX.Element {
+    const sidebarState = useSelector((state: RootStateOrAny) => state.layout.sidebar);
+    const dispatch = useDispatch();
+    const handleOnClickSideBar = () => {
+        if (sidebarState) {
+            dispatch(sidebarClose());
+        }
+    };
     return (
         <BrowserRouter>
             <Sidebar />
-            <MarginRigth>
+            <MarginRigth onClick={handleOnClickSideBar}>
                 <Header />
                 <Router />
             </MarginRigth>
